@@ -14,7 +14,6 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
     while len(search_queue) > 0 :
         ## this is a (state, "action") tuple
         next_state = search_queue.popleft()
-        state_counter += 1
         if goal_test(next_state[0]):
             print("Goal found")
             print(next_state)
@@ -26,6 +25,7 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
             return next_state
         else :
             successors = next_state[0].successors(action_list)
+            state_counter += 1
             if use_closed_list :
                 successors = [item for item in successors
                                     if item[0] not in closed_list]
@@ -45,10 +45,14 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
     search_queue.append((startState,""))
     if use_closed_list :
         closed_list[startState] = True
-    while len(search_queue) > 0 :
+    while len(search_queue) > 0:
         ## this is a (state, "action") tuple
         next_state = search_queue.pop()
-        state_counter += 1
+        path = next_state[0]
+        count = -1 #made this -1 so that limit can be set to the optimal number of actions performed
+        while path is not None : # get full path with all actions, limit the depth(actions performed)
+            path = path.prev
+            count += 1
         if goal_test(next_state[0]):
             print("Goal found")
             print(next_state)
@@ -58,8 +62,9 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
                 print(ptr)
             print(f"Total number of states: {state_counter}")
             return next_state
-        else :
+        elif count < limit :
             successors = next_state[0].successors(action_list)
+            state_counter += 1
             if use_closed_list :
                 successors = [item for item in successors
                                     if item[0] not in closed_list]
