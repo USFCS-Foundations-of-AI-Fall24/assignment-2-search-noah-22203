@@ -138,6 +138,7 @@ if __name__=="__main__" :
     s = RoverState()
     breadth_first_search(s, action_list, mission_complete)
     depth_first_search(s, action_list, mission_complete, limit=9)
+    iterative_deepening_search(s, action_list, mission_complete)
     
 
 
