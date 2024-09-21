@@ -1,0 +1,20 @@
+Noah Steaderman 
+
+Question 1:
+
+
+Question 2:
+    bfs states: 36
+    dfs states: 27
+    dls states(limit 9): 27
+    ids states: 124
+
+    after decomposition
+    bfs states: 18
+    dfs states: 27(not sure why this was the same)
+    dls states(limit = number of actions for each stage of decomp): 16
+    ids states: 31
+
+
+
+

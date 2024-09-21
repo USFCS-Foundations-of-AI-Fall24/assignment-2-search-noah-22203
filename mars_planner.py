@@ -130,16 +130,30 @@ def battery_goal(state) :
     return state.loc == "battery"
 ## add your goals here.
 
+def sample_goal(state) :
+    return state.loc == "sample"
+
+def extraction_goal(state) :
+    return (state.sample_extracted and state.holding_sample)
+
+def return_to_charger(state) :
+    return state.loc == "battery"
 def mission_complete(state) :
     return(state.loc =="station" and state.charged and not state.holding_sample)
 
 
 if __name__=="__main__" :
     s = RoverState()
-    breadth_first_search(s, action_list, mission_complete)
-    depth_first_search(s, action_list, mission_complete, limit=9)
-    iterative_deepening_search(s, action_list, mission_complete)
-    
+    #breadth_first_search(s, action_list, mission_complete)
+    #depth_first_search(s, action_list, mission_complete, limit=9)
+    #depth_first_search(s, action_list, mission_complete)
+    #iterative_deepening_search(s, action_list, mission_complete)
+    sample_reached = RoverState("sample")
+    sample_extracted = RoverState("sample", True, True, False, False)
+
+    iterative_deepening_search(s, action_list, sample_goal)
+    iterative_deepening_search(sample_reached, action_list, extraction_goal)
+    iterative_deepening_search(sample_extracted, action_list, return_to_charger)
 
 
 
