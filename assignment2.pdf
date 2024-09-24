@@ -1,6 +1,36 @@
 Noah Steaderman 
 
 Question 1:
+    BFS:
+        time complexity: O(b^(d+1))
+        space complexity: Same as time complexity
+        complete? Yes
+        optimal? Yes
+    UCS:
+        time complexity: O(b^(1+C/E))    C = optimal cost   E = each step to get closer to the goal node
+        space complexity: Same as time complexity
+        complete? Yes
+        optimal? Yes
+    DFS:
+        time complexity:  O(b^n)
+        space complexity: O(bn)
+        complete? Yes on a finite graph
+        optimal? No
+    DLS:
+        time complexity: O(b^l)  
+        space complexity: O(bl)
+        complete? Yes
+        optimal? No
+    IDS:
+        time complexity:  O(b^d)
+        space complexity: O(bd)
+        complete? Yes
+        optimal? Yes
+    A*:
+        time complexity: O(b^d)
+        space complexity: f = g(n) + h(n) 
+        complete? Yes
+        optimal? Yes
 
 
 Question 2:
@@ -18,6 +48,20 @@ Question 2:
 Question 3: (running both from location = 3,6)
     a* states: 27
     uniform cost states: 48
+
+
+Question 4: 
+    Antenna 1: f2
+    Antenna 2: f1
+    Antenna 3: f3
+    Antenna 4: f3
+    Antenna 5: f2
+    Antenna 6: f2
+    Antenna 7: f1
+    Antenna 8: f3
+    Antenna 9: f1
+
+Question 5: 
 
 
 

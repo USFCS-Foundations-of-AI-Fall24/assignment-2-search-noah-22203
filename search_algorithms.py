@@ -71,6 +71,7 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
                 for s in successors :
                     closed_list[s[0]] = True
             search_queue.extend(successors)
+    print("Goal not reached")
     print(f"Total number of states visited: {state_counter}")
     return next_state[0]
 
