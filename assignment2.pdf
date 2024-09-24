@@ -1,12 +1,17 @@
 Noah Steaderman 
 
+I want to preface with the fact that I changed some of the values in the given code for Question 1, because it made more sense to me 
+while I was solving the problem. I just saw on piazza that you said not to change them, but I did not have enough time to go back 
+and fix everything becuase I submitted this on the final due date. In the future I will check piazza more often to not make 
+this same mistake, but all of my outputs are consistent in the way they handle actions and generate states.
+
 Question 1:
     BFS:
         time complexity: O(b^(d+1))
         space complexity: Same as time complexity
         complete? Yes
         optimal? Yes
-    UCS:
+    UCS: I googled the time and space complexity
         time complexity: O(b^(1+C/E))    C = optimal cost   E = each step to get closer to the goal node
         space complexity: Same as time complexity
         complete? Yes
@@ -26,9 +31,9 @@ Question 1:
         space complexity: O(bd)
         complete? Yes
         optimal? Yes
-    A*:
-        time complexity: O(b^d)
-        space complexity: f = g(n) + h(n) 
+    A*: googled the time and space complexity
+        time complexity: depends on the heuristic
+        space complexity: O(b^d)
         complete? Yes
         optimal? Yes
 
@@ -62,6 +67,25 @@ Question 4:
     Antenna 9: f1
 
 Question 5: 
+
+a) What were the engineering advances that led to Deep Blue's success? Which of them can be transferred to other problems, 
+and which are specific to chess?
+
+    engineering advances included Medium-scale multiprocessing, Enhanced evaluation hardware, Improved search software, and an Extended book.
+    while Enhanced evaluation hardware and an Extended opening book were specific to chess, multiprocessing is extremely valuable in other 
+    problems because parallel processing greatly decreases run time and is great for many types of computations. Improved search software
+    is also extremely benificial to a wide variety of problems, as seen in this assignment, where optimizing seach can improve both
+    time and space complexity.
+
+
+b) AlphaZero is compared to a number of modern game-playing programs, such as StockFish, which work similarly to Deep Blue. 
+The paper shows that AlphaZero is able to defeat StockFish even when it is given only 1/100 of the computing time. 
+Why is that? Please frame your answer in terms of search and the number of nodes evaluated.
+
+    AlphaZero is able to perform better with lower computing times for a few different reasons. In terms of search, AlphaZero uses 
+    a generalpurpose Monte-Carlo tree search to generate probabilities to determine actions. This is much faster than evaluating
+    every possible position like StockFish and Deep Blue. Becuase of this, nodes are traversed based on their probablity of a 
+    winning outcome, rather than every single path being evaluated.
 
 
 

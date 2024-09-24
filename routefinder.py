@@ -56,17 +56,22 @@ def a_star(start_state, heuristic_fn, goal_test, use_closed_list=True) :
             print(f"Total number of states: {state_counter}")
             return next_state  
         else:
-            edges = next_state.mars_graph.get_edges(Node(next_state.location))
+            new_node = Node(next_state.location)
+            edges = next_state.mars_graph.get_edges(new_node) #gets edges
+            
             if edges is None:  #this may not be necessary anymore but it fixed a bug I was having earlier so I left it in.
                 edges = []  
             successors = []
             
-            for edge in edges:
+            for edge in edges: 
                 new_state = map_state(location=edge.dest, mars_graph=m_graph, prev_state=next_state)
+
                 new_state.g = next_state.g + edge.val #increment cost so far
                 new_state.h = heuristic_fn(new_state) #recalculate cost to goal
                 new_state.f = new_state.g + new_state.h #total cost
+
                 successors.append(new_state)
+
             state_counter += len(successors) #increment states
            
             if use_closed_list:
@@ -87,7 +92,9 @@ def h1(state) :
 ## you do this - return the straight-line distance between the state and (1,1)
 def sld(state) :
     loc = state.location.split(",")
-    return math.sqrt((int(loc[0])-1) ** 2 + ((int(loc[1])-1) ** 2))
+    x = int(loc[0])
+    y = int(loc[1])
+    return math.sqrt((x-1) ** 2 + (y-1) ** 2)
 
 ## you implement this. Open the file filename, read in each line,
 ## construct a Graph object and assign it to self.mars_graph().
