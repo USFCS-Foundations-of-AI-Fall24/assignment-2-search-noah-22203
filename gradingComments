@@ -1,0 +1,40 @@
+Assignment 2 comments:
+
+Question 1: Algorithms. 10/10
+
+Question 2:
+
+eq: 5/5
+
+goal: 5/5
+
+BFS/DFS: 5/5
+
+DLS: 8/10 - the way you're handling the limit is a little weird.
+It's easier to just store depth in each node, then the new node's depth
+is parent + 1.
+
+tools: 10/10
+
+decomposition: 10/10
+
+Question 3:
+
+read_mars_graph: 4/5
+Don't hardcode the path on your local machine :-) 
+
+A*: 15/15
+
+count states: 5/5
+
+Question 4: 10/10
+
+Question 5: 10/10 - good, but brief. Please feel free to expand further on
+future questions.
+
+97/100
+
+
+
+
+
